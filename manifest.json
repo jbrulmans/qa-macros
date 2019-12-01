@@ -1,0 +1,27 @@
+{
+  "name": "QA Macros",
+  "version": "0.1",
+  "description": "Macros for Google Chrome to create templates which are being used in the Quality Assurance process",
+  "manifest_version": 2,
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "options_page": "views/options.html",
+  "page_action": {
+    "default_popup": "views/popup.html",
+    "default_icon": {
+      "16": "img/qa-extension_16.png",
+      "32": "img/qa-extension_32.png",
+      "48": "img/qa-extension_48.png",
+      "128": "img/qa-extension_128.png"
+    }
+  },
+  "icons": {
+    "16": "img/qa-extension_16.png",
+    "32": "img/qa-extension_32.png",
+    "48": "img/qa-extension_48.png",
+    "128": "img/qa-extension_128.png"
+  },
+  "background": {
+    "scripts": ["scripts/background.js"],
+    "persistent": false
+  }
+}
