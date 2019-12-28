@@ -22,8 +22,11 @@
   "content_scripts": [
     {
       "matches": ["https://mysugr.atlassian.net/*", "http://mysugr.atlassian.net/"],
-      "js": ["scripts/background/keyHandler.js"],
-      "run_at": "document_start"
+      "js": [
+        "scripts/constants.js",
+        "scripts/background/macroHandler.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "background": {

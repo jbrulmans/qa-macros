@@ -5,48 +5,28 @@ chrome.runtime.onInstalled.addListener(function() {
     chrome.storage.local.set(
         {
             bug_template: 'Session #1: Verifying fix\n' +
-                '\n' +
                 'Build: 7eb173fd \n' +
-                '\n' +
                 'Browser: Chrome 79.0.3945.88\n' +
-                '\n' +
-                ':check_mark: VERIFIED',
+                ':check_mark: VERIFIED\n',
             session_template: 'Session #\n' +
-                '\n' +
                 'Goal: \n' +
-                '\n' +
                 'Environment: \n' +
-                '\n' +
                 'Session Duration: \n' +
-                '\n' +
                 'Device(s): \n' +
-                '\n' +
                 'Results:\n' +
-                '\n' +
                 '(/)\n' +
-                '\n' +
-                '(x)',
+                '(x)\n',
             explorative_template: 'exploratory testing done\n' +
-                '\n' +
                 'with build XXX\n' +
-                '\n' +
                 'with phones \n' +
-                '\n' +
                 'TE\n' +
-                '\n' +
-                '(/) \n' +
-                '\n' +
+                '(/)\n' +
                 '(X) discovered bug\n' +
-                '\n' +
                 'Test cases are up-to-date',
-            rc_testing: 'RC testing done\n' +
-                '\n' +
+            rc_template: 'RC testing done\n' +
                 'with build XXX\n' +
-                '\n' +
                 'with phone(s )\n' +
-                '\n' +
                 'TE\n' +
-                '\n' +
                 'Integration Run performed (PLEASE ALWAYS LINK to the Jira ticket)'
         },
         function() {
