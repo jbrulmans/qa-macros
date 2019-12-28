@@ -1,6 +1,6 @@
 {
-  "name": "QA Macros",
-  "version": "0.1",
+  "name": "myMacros",
+  "version": "1.0",
   "description": "Macros for Google Chrome to create templates which are being used in the Quality Assurance process",
   "manifest_version": 2,
   "permissions": ["activeTab", "declarativeContent", "storage"],
