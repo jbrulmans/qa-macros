@@ -23,31 +23,28 @@ function checkInput() {
 function replaceTemplate(command) {
     const focusedElement = document.activeElement;
     const inputText = document.activeElement.innerHTML;
+    let url;
 
     switch (command) {
         case COMMANDS.BUG:
             console.log("Bug testing macro typed.");
-            chrome.storage.local.get('bug_template', function (data) {
-                focusedElement.innerHTML = inputText.replace(command, data.bug_template);
-            });
+            url = chrome.runtime.getURL(TEMPLATES.BUG);
             break;
         case COMMANDS.SESSION:
             console.log("Session testing macro typed.");
-            chrome.storage.local.get('session_template', function (data) {
-                focusedElement.innerHTML = inputText.replace(command, data.session_template);
-            });
+            url = chrome.runtime.getURL(TEMPLATES.SESSION);
             break;
         case COMMANDS.EXPLORATIVE:
             console.log("Explorative testing macro typed.");
-            chrome.storage.local.get('explorative_template', function (data) {
-                focusedElement.innerHTML = inputText.replace(command, data.explorative_template);
-            });
+            url = chrome.runtime.getURL(TEMPLATES.EXPLORATIVE);
             break;
         case COMMANDS.RC:
             console.log("RC testing macro typed.");
-            chrome.storage.local.get('rc_template', function (data) {
-                focusedElement.innerHTML = inputText.replace(command, data.rc_template);
-            });
+            url = chrome.runtime.getURL(TEMPLATES.RC);
             break;
     }
+
+    fetch(url)
+        .then(response => {return response.text();})
+        .then(data => {focusedElement.innerHTML = data;})
 }

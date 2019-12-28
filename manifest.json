@@ -34,5 +34,8 @@
       "scripts/background/onInstalled.js"
     ],
     "persistent": false
-  }
+  },
+  "web_accessible_resources": [
+    "templates/*.html"
+  ]
 }
