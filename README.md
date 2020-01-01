@@ -5,20 +5,12 @@ myMacros is a Google Chrome extension which allows the usage of certain macros i
 
 ## Installation
 
-### Chrome Web Store
-
-Use the [Chrome Web Store]() to install myMacros and get new updates automatically.
-
-Due to long review processes for the Chrome web store, it can occur that the latest release is not always published yet before it's released here. If you do however want the latest release, consider installing the extension manually, as explained below.
-
-### Manually
-
-1. Download the latest release zip [here](https://github.com/jbrulmans/qa-macros/releases).
+1. Clone the repository or download the latest release zip [here](https://github.com/jbrulmans/qa-macros/releases).
 2. Unzip the release zip.
 3. Navigate to `chrome://extensions/` in your Google Chrome browser.
 4. At the top right, turn on _Developer mode_.
 5. Click _Load unpacked_.
-6. Find and select the root of the unzipped extension folder.
+6. Find and select the root of the repository or unzipped extension folder.
 7. _myMacros_ should now appear in your list of extensions.
 
 ## Usage
