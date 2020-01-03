@@ -25,6 +25,11 @@ In any Jira comment or input field, the following macros can be used to quickly 
 
 ![](demo/bug.gif)
 
+## Templates
+Currently there's no option yet to change the templates in the extension itself. You can however change the templates yourself by changing the corresponding `.txt` and `.html` files in the 'templates' folders **before** loading the unpacked folder.
+
+The possibility to change the templates via the option page is currenlty in development and should be released soon.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
