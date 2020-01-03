@@ -1,7 +1,7 @@
 {
   "name": "myMacros",
-  "version": "1.0",
-  "description": "Macros for Google Chrome to create templates which are being used in the Quality Assurance process",
+  "version": "1.1",
+  "description": "myMacros is a Google Chrome extension which allows the usage of certain macros in Jira to quickly load specific templates",
   "manifest_version": 2,
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "options_page": "views/options.html",
