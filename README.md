@@ -1,7 +1,7 @@
 
 # myMacros
 
-myMacros is a Google Chrome extension which allows the usage of certain macros in Jira to quickly load specific templates.
+myMacros is a Google Chrome extension which allows the use of certain macros in Jira to quickly load specific templates.
 
 ## Installation
 
