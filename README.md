@@ -19,7 +19,7 @@ In any Jira comment or input field, the following macros can be used to quickly 
 ```
 \bug            # replaced by default template for verifying a bug
 \session        # replaced by default template for Session testing
-\explorative    # replaced by default template for Explorative testing
+\exploratory    # replaced by default template for Exploratory testing
 \rc             # replaced by default template for Release Candidate testing
 ```
 

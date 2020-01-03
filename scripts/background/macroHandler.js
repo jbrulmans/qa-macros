@@ -34,8 +34,8 @@ function replaceNewView(command) {
         case COMMANDS.SESSION:
             url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.SESSION);
             break;
-        case COMMANDS.EXPLORATIVE:
-            url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.EXPLORATIVE);
+        case COMMANDS.EXPLORATORY:
+            url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.EXPLORATORY);
             break;
         case COMMANDS.RC:
             url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.RC);
@@ -59,8 +59,8 @@ function replaceOldView(command) {
         case COMMANDS.SESSION:
             url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.SESSION);
             break;
-        case COMMANDS.EXPLORATIVE:
-            url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.EXPLORATIVE);
+        case COMMANDS.EXPLORATORY:
+            url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.EXPLORATORY);
             break;
         case COMMANDS.RC:
             url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.RC);
