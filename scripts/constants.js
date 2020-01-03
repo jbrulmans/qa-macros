@@ -7,9 +7,16 @@ const COMMANDS = {
 };
 
 /* Template file names */
-const TEMPLATES = {
-    BUG: "templates/bug.html",
-    SESSION: "templates/session.html",
-    EXPLORATIVE: "templates/explorative.html",
-    RC: "templates/rc.html"
+const TEMPLATES_NEW_VIEW = {
+    BUG: "templates/newView/bug.html",
+    SESSION: "templates/newView/session.html",
+    EXPLORATIVE: "templates/newView/explorative.html",
+    RC: "templates/newView/rc.html"
 };
+
+const TEMPLATES_OLD_VIEW = {
+    BUG: "templates/oldView/bug.txt",
+    SESSION: "templates/oldView/session.txt",
+    EXPLORATIVE: "templates/oldView/explorative.txt",
+    RC: "templates/oldView/rc.txt"
+}

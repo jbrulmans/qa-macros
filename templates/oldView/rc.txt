@@ -1,0 +1,6 @@
+*RC testing done*
+with build XXX
+with phone(s)
+* TE
+
+Integration Run performed (PLEASE ALWAYS LINK to the Jira ticket)

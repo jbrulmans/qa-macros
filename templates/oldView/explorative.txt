@@ -1,0 +1,8 @@
+*Exploratory testing done*
+with build XXX
+with phone(s)
+* TE
+
+(/)
+(x) discovered bug
+Test cases are up-to-date

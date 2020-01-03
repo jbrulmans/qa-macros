@@ -1,50 +1,73 @@
-/* keys buffer */
-let buffer = [];
-let saveKeysToBuffer = false;
-
 if (window === top) {
     document.addEventListener("keyup", function (event) {
+        // NEW jira view
         if (event.target.matches('.ProseMirror')) {
-            checkInput();
+            checkInput(document.activeElement.innerHTML, false);
+        }
+        // OLD jira view
+        if (event.target.matches('#comment')) {
+            checkInput(document.getElementById("comment").value, true);
         }
     }, false);
 }
 
-function checkInput() {
-    const inputText = document.activeElement.innerHTML;
-    console.log(inputText);
 
+function checkInput(inputText, usesOldView) {
     for (let command in COMMANDS) {
         if (inputText.toLowerCase().includes(COMMANDS[command]))
-            replaceTemplate(COMMANDS[command]);
+            if (usesOldView)
+                replaceOldView(COMMANDS[command]);
+            else
+                replaceNewView(COMMANDS[command]);
     }
 }
 
-function replaceTemplate(command) {
+function replaceNewView(command) {
     const focusedElement = document.activeElement;
     const inputText = document.activeElement.innerHTML;
     let url;
 
     switch (command) {
         case COMMANDS.BUG:
-            console.log("Bug testing macro typed.");
-            url = chrome.runtime.getURL(TEMPLATES.BUG);
+            url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.BUG);
             break;
         case COMMANDS.SESSION:
-            console.log("Session testing macro typed.");
-            url = chrome.runtime.getURL(TEMPLATES.SESSION);
+            url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.SESSION);
             break;
         case COMMANDS.EXPLORATIVE:
-            console.log("Explorative testing macro typed.");
-            url = chrome.runtime.getURL(TEMPLATES.EXPLORATIVE);
+            url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.EXPLORATIVE);
             break;
         case COMMANDS.RC:
-            console.log("RC testing macro typed.");
-            url = chrome.runtime.getURL(TEMPLATES.RC);
+            url = chrome.runtime.getURL(TEMPLATES_NEW_VIEW.RC);
             break;
     }
 
     fetch(url)
         .then(response => {return response.text();})
         .then(data => {focusedElement.innerHTML = data;})
+}
+
+function replaceOldView(command) {
+    const focusedElement = document.activeElement;
+    const inputText = document.activeElement.value;
+    let url;
+
+    switch (command) {
+        case COMMANDS.BUG:
+            url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.BUG);
+            break;
+        case COMMANDS.SESSION:
+            url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.SESSION);
+            break;
+        case COMMANDS.EXPLORATIVE:
+            url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.EXPLORATIVE);
+            break;
+        case COMMANDS.RC:
+            url = chrome.runtime.getURL(TEMPLATES_OLD_VIEW.RC);
+            break;
+    }
+
+    fetch(url)
+        .then(response => {return response.text();})
+        .then(data => {focusedElement.value = data;})
 }
