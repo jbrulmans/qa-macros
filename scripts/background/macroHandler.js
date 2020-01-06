@@ -1,20 +1,53 @@
+let autoComplete = null;
+
 if (window === top) {
-    document.addEventListener("keyup", function (event) {
-        // NEW jira view
-        if (event.target.matches('.ProseMirror')) {
-            checkInput(document.activeElement.innerHTML, false);
+    document.addEventListener("focus", function (event) {
+        /*if (event.target.matches(SELECTORS.NEW_JIRA)) {
+            if (autoComplete === null)
+                initializeAutoComplete(SELECTORS.NEW_JIRA);
+        }*/
+        if (event.target.matches(SELECTORS.OLD_JIRA)) {
+            if (autoComplete === null)
+                initializeAutoComplete(SELECTORS.OLD_JIRA);
         }
-        // OLD jira view
-        if (event.target.matches('#comment')) {
-            checkInput(document.getElementById("comment").value, true);
+    }, true);
+    document.addEventListener("keyup", function (event) {
+        if (event.target.matches(SELECTORS.NEW_JIRA)) {
+            let activeElement = document.activeElement;
+            checkInput(activeElement.innerHTML, false);
+        }
+        if (event.target.matches(SELECTORS.OLD_JIRA)) {
+            let activeElement = document.activeElement;
+            checkInput(activeElement.value, true);
         }
     }, false);
 }
 
+function initializeAutoComplete(selector) {
+    autoComplete = new Tribute({
+        trigger: TRIGGER_SYMBOL,
+        values : loadMacros(),
+        menuItemTemplate: function (item) {
+            return TRIGGER_SYMBOL + item.original.value;
+        },
+        selectTemplate: function (item) {
+            return TRIGGER_SYMBOL + item.original.value;
+        }
+    });
+    autoComplete.attach(document.querySelectorAll(selector));
+}
+
+function loadMacros() {
+    let values = [];
+    for (let command in COMMANDS) {
+        values.push({key: COMMANDS[command], value: COMMANDS[command]});
+    }
+    return values;
+}
 
 function checkInput(inputText, usesOldView) {
     for (let command in COMMANDS) {
-        if (inputText.toLowerCase().includes(COMMANDS[command]))
+        if (inputText.toLowerCase().includes(TRIGGER_SYMBOL + COMMANDS[command]))
             if (usesOldView)
                 replaceOldView(COMMANDS[command]);
             else
@@ -24,7 +57,6 @@ function checkInput(inputText, usesOldView) {
 
 function replaceNewView(command) {
     const focusedElement = document.activeElement;
-    const inputText = document.activeElement.innerHTML;
     let url;
 
     switch (command) {
@@ -49,7 +81,6 @@ function replaceNewView(command) {
 
 function replaceOldView(command) {
     const focusedElement = document.activeElement;
-    const inputText = document.activeElement.value;
     let url;
 
     switch (command) {

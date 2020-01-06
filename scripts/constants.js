@@ -1,9 +1,18 @@
+// Trigger symbol used for the macro
+const TRIGGER_SYMBOL = '\\';
+
+/* Selectors for the JIRA comment fields */
+const SELECTORS = {
+    NEW_JIRA: '.ProseMirror',
+    OLD_JIRA: '#comment'
+};
+
 /* String commands */
 const COMMANDS = {
-    BUG: "\\bug",
-    SESSION: "\\session",
-    EXPLORATORY: "\\exploratory",
-    RC: "\\rc"
+    BUG: "bug",
+    SESSION: "session",
+    EXPLORATORY: "exploratory",
+    RC: "rc"
 };
 
 /* Template file names */
@@ -19,4 +28,4 @@ const TEMPLATES_OLD_VIEW = {
     SESSION: "templates/oldView/session.txt",
     EXPLORATORY: "templates/oldView/exploratory.txt",
     RC: "templates/oldView/rc.txt"
-}
+};
