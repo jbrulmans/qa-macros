@@ -1,5 +1,1 @@
-*Verifying bug*
-Build:
-Browser:
-(/) VERIFIED
-(x) 
+(/) *Verified* with TE-XX on build x.x.x
